@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'authentication',
-    'event'
+    'event',
+    'announcement'
 ]
 
 AUTH_USER_MODEL = 'authentication.User'
