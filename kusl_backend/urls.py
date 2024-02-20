@@ -20,6 +20,7 @@ from django.urls import include, path
 api_url = [
     path('auth/', include('authentication.urls')),
     path('event/', include('event.urls')),
+    path('announcement/', include('announcement.urls')),
 ]
 
 urlpatterns = [
