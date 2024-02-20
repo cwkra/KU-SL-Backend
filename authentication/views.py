@@ -1,17 +1,10 @@
 
 from rest_framework import viewsets, permissions
-from django.contrib.auth.decorators import permission_required
-from django.utils.decorators import method_decorator
-from rest_framework.decorators import action
 
 from authentication.models import User, Education
 from authentication.serializers import (
     UserSerializer, 
-    
     EducationSerializer,
-    CreateEducationSerializer,
-    UpdateEducationSerializer,
-    DeleteEducationSerializer
 )
 
 # Create your views here.
