@@ -21,6 +21,7 @@ api_url = [
     path('auth/', include('authentication.urls')),
     path('event/', include('event.urls')),
     path('announcement/', include('announcement.urls')),
+    path('qualification-question/', include('qualification_question.urls')),
 ]
 
 urlpatterns = [
