@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'authentication',
     'event',
-    'announcement'
+    'announcement',
+    'qualification_question'
 ]
 
 AUTH_USER_MODEL = 'authentication.User'
