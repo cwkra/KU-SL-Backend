@@ -22,6 +22,7 @@ api_url = [
     path('event/', include('event.urls')),
     path('announcement/', include('announcement.urls')),
     path('qualification-question/', include('qualification_question.urls')),
+    path('student-loan-request-record/', include('student_loan_request_record.urls')),
 ]
 
 urlpatterns = [
