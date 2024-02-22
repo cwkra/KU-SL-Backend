@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'event',
     'announcement',
     'qualification_question',
-    'student_loan_request_record'
+    'student_loan_request_record',
+    'volunteer_activities_hours_record'
 ]
 
 AUTH_USER_MODEL = 'authentication.User'
