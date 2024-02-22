@@ -23,6 +23,7 @@ api_url = [
     path('announcement/', include('announcement.urls')),
     path('qualification-question/', include('qualification_question.urls')),
     path('student-loan-request-record/', include('student_loan_request_record.urls')),
+    path('volunteer-activities-hours-record/', include('volunteer_activities_hours_record.urls')),
 ]
 
 urlpatterns = [
