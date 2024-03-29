@@ -9,5 +9,5 @@ from event.serializers import (
 # Create your views here.
 
 class EventViewSet(viewsets.ModelViewSet):
-    queryset = Event.objects.all()
+    queryset = Event.objects.all().order_by('start_date')
     serializer_class = EventSerializer

@@ -4,6 +4,12 @@ from rest_framework import serializers
 
 
 class NotificationSerializer(serializers.ModelSerializer):
+    sender = serializers.PrimaryKeyRelatedField(
+        queryset=User.objects.all(), required=False)
+    receiver = serializers.PrimaryKeyRelatedField(
+        queryset=User.objects.all(), required=False)
+    title = serializers.CharField(required=False)
+    message = serializers.CharField(required=False)
     class Meta:
         model = Notification
         fields = '__all__'
@@ -11,7 +17,6 @@ class NotificationSerializer(serializers.ModelSerializer):
         
 
 class CreateNotificationSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = Notification
         fields = '__all__'
@@ -33,6 +38,7 @@ class UpdateNotificationSerializer(serializers.ModelSerializer):
     receiver = serializers.PrimaryKeyRelatedField(
         queryset=User.objects.all(),
         required=False)
+    title = serializers.CharField(required=False)
     message = serializers.CharField(required=False)
     create_date = serializers.DateTimeField(required=False)
     is_read = serializers.BooleanField(required=False)

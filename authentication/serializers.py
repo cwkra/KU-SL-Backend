@@ -3,18 +3,35 @@ from django.db.models import Q
 from rest_framework import serializers
 
 
+
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = '__all__'
-        depth = 1
-        
+        depth = 3
+    
 
+class CreateUserSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = User
+        fields = '__all__'
+
+    def save(self):
+        data = self._validated_data
+        # add User
+        user = self.Meta.model(**data)
+        user.set_password(user.password)
+        user.save()
+
+        return UserSerializer(user).data
+
+  
 class EducationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Education
         fields = '__all__'
-        depth = 1
+        depth = 2
         
 
 class CreateEducationSerializer(serializers.ModelSerializer):

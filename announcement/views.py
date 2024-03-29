@@ -9,7 +9,7 @@ from announcement.serializers import (
 # Create your views here.
 
 class AnnouncementViewSet(viewsets.ModelViewSet):
-    queryset = Announcement.objects.all()
+    queryset = Announcement.objects.all().order_by('-announced_datetime')
     serializer_class = AnnouncementSerializer
     search_fields = (
         'header',
@@ -19,4 +19,4 @@ class AnnouncementViewSet(viewsets.ModelViewSet):
         'id': {'exact'},
         'header': {'contains', 'exact'}
     }
-    ordering_fields = ('id', 'header')
+    ordering_fields = ('id', 'header', 'announced_datetime')

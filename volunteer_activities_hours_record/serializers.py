@@ -1,9 +1,16 @@
 from volunteer_activities_hours_record.models import VolunteerActivitiesHoursRecord
 from authentication.models import User
+from authentication.serializers import (
+    UserSerializer, 
+)
 from rest_framework import serializers
 
 
 class VolunteerActivitiesHoursRecordSerializer(serializers.ModelSerializer):
+    borrower = serializers.PrimaryKeyRelatedField(
+        queryset=User.objects.all())
+    verification = serializers.FileField(required=False)
+    borrower_name = serializers.CharField(required=False)
     class Meta:
         model = VolunteerActivitiesHoursRecord
         fields = '__all__'
@@ -11,7 +18,8 @@ class VolunteerActivitiesHoursRecordSerializer(serializers.ModelSerializer):
         
 
 class CreateVolunteerActivitiesHoursRecordSerializer(serializers.ModelSerializer):
-
+    verification = serializers.FileField(required=False)
+    
     class Meta:
         model = VolunteerActivitiesHoursRecord
         fields = '__all__'
@@ -30,6 +38,7 @@ class UpdateVolunteerActivitiesHoursRecordSerializer(serializers.ModelSerializer
     borrower = serializers.PrimaryKeyRelatedField(
         queryset=User.objects.all(),
         required=False)
+    borrower_name = serializers.CharField(required=False)
     name = serializers.CharField(required=False)
     category = serializers.CharField(required=False)
     hours = serializers.IntegerField(required=False)
@@ -37,6 +46,7 @@ class UpdateVolunteerActivitiesHoursRecordSerializer(serializers.ModelSerializer
     academic_year = serializers.CharField(required=False)
     create_date = serializers.DateTimeField(required=False)
     verification = serializers.FileField(required=False)
+    event_date = serializers.DateField(required=False)
     status = serializers.CharField(required=False)
 
     class Meta:
